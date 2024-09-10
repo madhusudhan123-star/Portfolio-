@@ -1,0 +1,165 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none;
+  /* Disable scrollbar width */
+}
+
+/* Hide scroll bar on all elements */
+body {
+  overflow: -moz-scrollbars-none;
+  /* Hide scrollbar in older versions of Firefox */
+}
+
+.containers {
+  position: relative;
+  /* Adjust this to match image width + margins */
+  height: 100%;
+  /* Adjust as needed */
+  overflow: hidden;
+  background-color: #161A20;
+  border-radius: 8px;
+}
+
+.icon-slider {
+  display: flex;
+  animation: continuousSlide 30s linear infinite;
+  /* Adjust timing as needed */
+}
+
+
+@keyframes continuousSlide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-80%);
+  }
+}
+
+.shadow-left,
+.shadow-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  pointer-events: none;
+  background: linear-gradient(to right, rgba(22, 26, 32, 1), rgba(22, 26, 32, 0));
+  z-index: 1;
+}
+
+.shadow-left {
+  left: 0;
+}
+
+.shadow-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(22, 26, 32, 1), rgba(22, 26, 32, 0));
+}
+
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150vh;
+  pointer-events: none;
+  background-image: url('./background.png');
+  opacity: 0.05;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150vh;
+  background-image: linear-gradient(transparent, transparent 98%, rgba(255, 255, 255, 0.05) 99%, rgba(255, 255, 255, 0.1)),
+    linear-gradient(90deg, transparent, transparent 98%, rgba(255, 255, 255, 0.05) 99%, rgba(255, 255, 255, 0.1));
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+
+@keyframes moveUpDown {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateY(-20px);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translateY(20px);
+  }
+}
+
+.animated-svg path {
+  stroke: white;
+  /* Set stroke to white */
+  transition: stroke-dashoffset 1s ease;
+  /* Smooth transition */
+}
+
+.animated-svg:hover path {
+  stroke-dashoffset: 0;
+  /* On hover, make the path visible */
+  animation: dashAnimation 2s ease-in-out infinite;
+  /* Add animation */
+}
+
+@keyframes dashAnimation {
+  0% {
+    stroke-dashoffset: 60;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: 60;
+  }
+}
+
+.eye-icon {
+  stroke: white;
+  transition: stroke 0.3s ease;
+}
+
+.eye-icon:hover {
+  animation: blinkAndMove 1s ease infinite;
+}
+
+@keyframes blinkAndMove {
+
+  0%,
+  100% {
+    transform: scaleY(1) translateX(0);
+    /* Normal eye (no blink, no movement) */
+  }
+
+  25% {
+    transform: scaleY(1) translateX(20px);
+    /* Move right */
+  }
+
+  50% {
+    transform: scaleY(0) translateX(20px);
+    /* Blink (closed) and stay moved to the right */
+  }
+
+  75% {
+    transform: scaleY(1) translateX(-20px);
+    /* Reopen eye, move left */
+  }
+
+  100% {
+    transform: scaleY(1) translateX(0);
+    /* Return to normal position */
+  }
+}
