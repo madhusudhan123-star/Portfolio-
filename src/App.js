@@ -39,8 +39,8 @@ const cardData = [
   {
     id: 3,
     image: project3,
-    title: "YouTube clone",
-    description: "This ambitious Netflix clone, crafted using React.js for a dynamic front-end, Node.js and Express.js for a robust back-end, and MongoDB for efficient data management, delivers a seamless streaming experience while leveraging various APIs to enrich its content offerings.",
+    title: "YouTube Clone",
+    description: "This YouTube clone, built with React.js for an interactive front-end and Node.js with Express.js for a scalable back-end, features seamless video browsing, search functionality, and API integrations to simulate a real-world video streaming platform. MongoDB is used for efficient data storage and retrieval.",
     tags: ["API call", "React.js", "Javascript"],
     link: "https://you-tube-lac.vercel.app/",
   },
@@ -533,7 +533,7 @@ function App() {
                 <div className='flex w-full gap-5'>
                   <Draggable onDrag={(e, data) => handleDrag(6, e, data)} onStop={(e, data) => handleStop(6, e, data)} >
                     <div className=" w-[50%]">
-                      <div><a href='https://maps.app.goo.gl/DoY5xGRoYDMkifTb6'><img className='rounded-lg' src="https://api.mapbox.com/styles/v1/mapbox/navigation-night-v1/static/-97.73,30.3039,8.13,14/300x300?access_token=pk.eyJ1Ijoiam9zaHVhYnJpZ2F0aSIsImEiOiJjbHV3N2MxMnIwOWU1MmtrbGo3bDVidHhqIn0.ssKSeQ92WDAmwPfUyhs1QQ" /></a></div>
+                      <div><a href='https://maps.app.goo.gl/b3F1VZfuvArrooYr9'><img className='rounded-lg' src="https://api.mapbox.com/styles/v1/mapbox/navigation-night-v1/static/-97.73,30.3039,8.13,14/300x300?access_token=pk.eyJ1Ijoiam9zaHVhYnJpZ2F0aSIsImEiOiJjbHV3N2MxMnIwOWU1MmtrbGo3bDVidHhqIn0.ssKSeQ92WDAmwPfUyhs1QQ" /></a></div>
                     </div>
                   </Draggable>
                   <div className='flex flex-col w-[50%] gap-2'>
@@ -568,7 +568,7 @@ function App() {
                     <div className='grid grid-cols-2 gap-5'>
                       <div >
                         <div className='bg-[#1114176b] border-solid border-[0.5px] w-full h-full rounded-lg p-4 flex justify-center'>
-                          <a href='https://mail.google.com/mail/?view=cm&fs=1&to=dmadhusudhan98@gmail.com'><Mail className="w-12 h-12" /></a>
+                          <a href='mailto:dmadhusudhan98@gmail.com'><Mail className="w-12 h-12" /></a>
                         </div>
                       </div>
                       <div>
@@ -584,7 +584,7 @@ function App() {
                 <div className='flex w-full gap-5 flex-wrap'>
                   <div>
                     <div className=" w-screen flex items-center justify-center">
-                      <div><a href='https://maps.app.goo.gl/DoY5xGRoYDMkifTb6'><img className='rounded-lg' src="https://api.mapbox.com/styles/v1/mapbox/navigation-night-v1/static/-97.73,30.3039,8.13,14/300x300?access_token=pk.eyJ1Ijoiam9zaHVhYnJpZ2F0aSIsImEiOiJjbHV3N2MxMnIwOWU1MmtrbGo3bDVidHhqIn0.ssKSeQ92WDAmwPfUyhs1QQ" /></a></div>
+                      <div><a href='https://maps.app.goo.gl/b3F1VZfuvArrooYr9'><img className='rounded-lg' src="https://api.mapbox.com/styles/v1/mapbox/navigation-night-v1/static/-97.73,30.3039,8.13,14/300x300?access_token=pk.eyJ1Ijoiam9zaHVhYnJpZ2F0aSIsImEiOiJjbHV3N2MxMnIwOWU1MmtrbGo3bDVidHhqIn0.ssKSeQ92WDAmwPfUyhs1QQ" /></a></div>
                     </div>
                   </div>
                   <div className='flex flex-col w-full gap-2 '>
