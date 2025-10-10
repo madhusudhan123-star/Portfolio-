@@ -46,7 +46,6 @@ import project32 from './project32.png';
 import project33 from './project33.png';
 import project34 from './project34.png';
 
-import RainEffect from './RainEffect';
 
 const cardData = [
   {
