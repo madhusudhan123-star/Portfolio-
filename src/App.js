@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import { Linkedin, Github, Mail } from 'lucide-react';
+import { Mouse, Move } from 'lucide-react';
 import './App.css';
 import maps from './map.webp'
 import profile from './photo.jpg';
@@ -48,6 +49,33 @@ import project33 from './project33.png';
 import project34 from './project34.png';
 // Sample data for cards
 const cardData = [
+  {
+    id: 10,
+    image: project10,
+    title: "Sacred Relm",
+    description: "Spiritual e-commerce platform offering sacred items and religious products. Features elegant design, secure payments, and category-based product organization for spiritual and religious merchandise.",
+    tags: ["E-commerce", "Spiritual", "React.js"],
+    link: "https://sacredrelm.com",
+    category: "e-commerce"
+  },
+  {
+    id: 11,
+    image: project11,
+    title: "Sri Astro Veda",
+    description: "Professional astrology services platform with multi-language support (Telugu, Hindi, English). Features Razorpay payment integration, WhatsApp API notifications, horoscope reports, and comprehensive astrology consultation services.",
+    tags: ["Astrology", "Payment Integration", "WhatsApp API"],
+    link: "https://sriastroveda.com",
+    category: "complete application"
+  },
+  {
+    id: 12,
+    image: project12,
+    title: "Camp Hairr",
+    description: "Specialized fragrance e-commerce platform featuring multiple fragrance collections integrated into a single landing page. Built with React.js offering perfume catalogs, scent descriptions, customer reviews, and streamlined checkout process for premium fragrance shopping experience.",
+    tags: ["Fragrance", "React.js", "E-commerce"],
+    link: "https://camphairr.com",
+    category: "e-commerce"
+  },
   {
     id: 1,
     image: project1, // Update with actual image path
@@ -128,33 +156,6 @@ const cardData = [
     tags: ["Healthcare", "Next.js", "Booking System"],
     link: "https://sampoornarogya.com",
     category: "single product"
-  },
-  {
-    id: 10,
-    image: project10,
-    title: "Sacred Relm",
-    description: "Spiritual e-commerce platform offering sacred items and religious products. Features elegant design, secure payments, and category-based product organization for spiritual and religious merchandise.",
-    tags: ["E-commerce", "Spiritual", "React.js"],
-    link: "https://sacredrelm.com",
-    category: "e-commerce"
-  },
-  {
-    id: 11,
-    image: project11,
-    title: "Sri Astro Veda",
-    description: "Professional astrology services platform with multi-language support (Telugu, Hindi, English). Features Razorpay payment integration, WhatsApp API notifications, horoscope reports, and comprehensive astrology consultation services.",
-    tags: ["Astrology", "Payment Integration", "WhatsApp API"],
-    link: "https://sriastroveda.com",
-    category: "complete application"
-  },
-  {
-    id: 12,
-    image: project12,
-    title: "Camp Hairr",
-    description: "Specialized fragrance e-commerce platform featuring multiple fragrance collections integrated into a single landing page. Built with React.js offering perfume catalogs, scent descriptions, customer reviews, and streamlined checkout process for premium fragrance shopping experience.",
-    tags: ["Fragrance", "React.js", "E-commerce"],
-    link: "https://camphairr.com",
-    category: "e-commerce"
   },
   {
     id: 13,
@@ -383,11 +384,50 @@ const DraggableCard = ({ card }) => {
 
   return (
     !isMobile ? (
+      // <Draggable>
+      //   <div
+      //     className="p-4 w-screen lg:w-[100%] bg-[#1114176b] border-solid border-[0.01rem] rounded-lg shadow-lg text-[#E4E3E5] space-y-4"
+      //     onDoubleClick={handleDoubleClick}
+      //   >
+      //     <a href={card.link} onClick={(e) => e.preventDefault()}>
+      //       <img src={card.image} alt={card.title} className="rounded-lg" />
+      //     </a>
+      //     <h3 className="text-lg font-bold">{card.title}</h3>
+      //     <p className="text-sm text-gray-400">{card.description}</p>
+      //     <div className="flex flex-wrap gap-2">
+      //       {card.tags.map((tag, index) => (
+      //         <span key={index} className="bg-gray-700 text-xs px-2 py-1 rounded-lg">
+      //           {tag}
+      //         </span>
+      //       ))}
+      //     </div>
+      //   </div>
+      // </Draggable>
       <Draggable>
         <div
-          className="p-4 w-screen lg:w-[100%] bg-[#1114176b] border-solid border-[0.01rem] rounded-lg shadow-lg text-[#E4E3E5] space-y-4"
+          className="group relative p-4 w-screen lg:w-[100%] bg-[#1114176b] border border-white/10 rounded-lg shadow-lg text-[#E4E3E5] space-y-4 cursor-grab active:cursor-grabbing focus:outline-none focus:ring-2 focus:ring-white/20"
           onDoubleClick={handleDoubleClick}
+          onKeyDown={(e) => { if (e.key === 'Enter') handleDoubleClick(); }}
+          tabIndex={0}
+          role="button"
+          aria-label={`Open ${card.title} (double click)`}
+          title="Double click to open • Drag to move"
         >
+          {/* Tooltip */}
+          <div className="hidden md:block pointer-events-none absolute -top-2 right-2 -translate-y-full opacity-0 translate-y-1 scale-95 group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-focus-within:opacity-100 transition-all duration-200 ease-out z-20">
+            <div className="relative rounded-md bg-black/80 backdrop-blur-md ring-1 ring-white/10 shadow-xl px-3 py-2 text-xs text-white">
+              <div className="flex items-start gap-2">
+                <Mouse className="h-3.5 w-3.5 opacity-80" />
+                <div>
+                  <p className="font-medium leading-tight">Double click to open</p>
+                  <p className="text-[11px] text-gray-300 leading-tight">Drag card to reposition</p>
+                </div>
+              </div>
+              {/* Arrow */}
+              <span className="absolute right-3 -bottom-1 h-2 w-2 rotate-45 bg-black/80 ring-1 ring-white/10"></span>
+            </div>
+          </div>
+
           <a href={card.link} onClick={(e) => e.preventDefault()}>
             <img src={card.image} alt={card.title} className="rounded-lg" />
           </a>
@@ -399,6 +439,12 @@ const DraggableCard = ({ card }) => {
                 {tag}
               </span>
             ))}
+          </div>
+
+          {/* Optional: a tiny “Drag” chip at bottom-right */}
+          <div className="pointer-events-none absolute bottom-2 right-2 hidden md:flex items-center gap-1 rounded bg-white/10 px-2 py-0.5 text-[10px] text-white/90 ring-1 ring-white/10">
+            <Move className="h-3 w-3" />
+            Drag
           </div>
         </div>
       </Draggable>
@@ -510,7 +556,11 @@ function App() {
                           </h2>
                         </div>
                         <p className="text-lg text-[#E4E3E5] mb-2">
-                          I craft elegant interfaces that make people smile and product metrics climb.
+                          Full-Stack Developer with 1 year of professional experience and 2 years of freelance expertise in building dynamic,
+                          responsive, and user-focused web applications. Proficient in JavaScript (ES6+) , React.js , Next.js, Node.js, and
+                          Webflow , with a proven record of delivering 30+ successful projects for clients across e-commerce and service domains.
+                          Passionate about crafting innovative digital solutions, optimizing performance, and leveraging modern technologies
+                          to drive impactful user experiences.
                         </p>
                         <p className="text-lg text-[#E4E3E5]">
                           Solo builder — from idea to launch.
@@ -793,6 +843,22 @@ function App() {
                 <div className="flex justify-between items-start space-y-8 flex-wrap">
                   {/* Left Section */}
                   <div className="space-y-4">
+                    <h2 className="text-4xl font-bold">Website Developer</h2>
+                  </div>
+
+                  {/* Right Section */}
+                  <div className="space-y-4 text-right">
+                    <div>
+                      <h2 className=" text-xl">Israelites Shopping Network</h2>
+                      <p className="">India, Hyderabad</p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-start space-y-8 flex-wrap">
+                  {/* Left Section */}
+                  <div className="space-y-4">
                     <h2 className="text-4xl font-bold">Front End Developer</h2>
                   </div>
 
@@ -800,12 +866,12 @@ function App() {
                   <div className="space-y-4 text-right">
                     <div>
                       <h2 className=" text-xl">Freelance</h2>
-                      <p className="">Jan 2024 - Present</p>
                       <p className="">India, Hyderabad</p>
                     </div>
 
                   </div>
                 </div>
+                
               </div>
             </Draggable>
           </div>
