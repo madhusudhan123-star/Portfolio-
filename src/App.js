@@ -91,14 +91,14 @@ const cardData = [
     title: "Netflix clone",
     description: "This ambitious Netflix clone, crafted using React.js for a dynamic front-end, Node.js and Express.js for a robust back-end, and MongoDB for efficient data management, delivers a seamless streaming experience while leveraging various APIs to enrich its content offerings.",
     tags: ["Design System", "dynamic page", "React"],
-    link: "https://netflix-front-end-ten.vercel.app/",
+    link: "https://netflix-fawn-alpha.vercel.app",
     category: "complete application"
   },
   {
     id: 3,
     image: project3,
     title: "YouTube clone",
-    description: "This ambitious Netflix clone, crafted using React.js for a dynamic front-end, Node.js and Express.js for a robust back-end, and MongoDB for efficient data management, delivers a seamless streaming experience while leveraging various APIs to enrich its content offerings.",
+    description: "This YouTube clone, built with React.js and styled using Tailwind CSS, provides a responsive interface for browsing and watching videos. It features a clean layout, video search functionality, and a user-friendly experience.",
     tags: ["API call", "React.js", "Javascript"],
     link: "https://you-tube-lac.vercel.app/",
     category: "complete application"
